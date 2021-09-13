@@ -30,7 +30,7 @@ const currentFileName = input[1];
 
 		// print all lines
 		lines.forEach(async (line,i) => {
-			await fs.rename(`${currentFileName}${i + 1}.mp4`, `${i + 1}_${line}.mp4`, function(err) {
+			await fs.rename(`${currentFileName}${i + 1}.mp4`, `${i + 1}_${line.replace(/[:\/]/g,''}.mp4`, function(err) {
 				if ( err ) console.log('ERROR: ' + err);
 			});
 		});
